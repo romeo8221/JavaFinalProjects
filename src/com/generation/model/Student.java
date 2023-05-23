@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 public class Student
-    extends Person
-    implements Evaluation
+        extends Person
+        implements Evaluation
 {
     private double average;
 
@@ -23,7 +23,7 @@ public class Student
 
     public void enrollToCourse( Course course )
     {
-        //TODO implement this method
+        courses.add(course);
     }
 
     public void registerApprovedCourse( Course course )
@@ -32,9 +32,12 @@ public class Student
     }
 
 
-    public boolean isAttendingCourse( String courseCode )
-    {
-        //TODO implement this method
+    public boolean isAttendingCourse(String courseCode) {
+        for (Course course : courses) {
+            if (course.getCode().equals(courseCode)) {
+                return true;
+            }
+        }
         return false;
     }
 
